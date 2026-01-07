@@ -1,4 +1,4 @@
-# Construindo Aplicações Web com PHP e MySQL - 1ª Edição 
+# Construindo Aplicações Web com PHP e MySQL   
 Descrição do livro: A construção de sites e aplicações cresce de forma acelerada na internet e, por trás de grande parte desses projetos, o PHP e o MySQL são utilizados por serem tecnologias muito eficientes e terem sido criados visando este nicho de mercado: aplicações web (intranet e internet).   
 https://novatec.com.br/livros/aplicacoes-web-com-php-mysql-1ed   
 
@@ -13,7 +13,7 @@ https://github.com/mazinhodeveloper/curso-logica-programacao-php
 | XAMPP                      | https://www.apachefriends.org |   
 | Docker                     | https://www.docker.com        |   
 
-### DockerCriando os containers 
+### Docker / Criando os containers 
 docker compose up -d --build 
 
 ### Rodando o Projeto 

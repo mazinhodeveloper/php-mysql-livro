@@ -1,0 +1,61 @@
+services:
+
+  # 1. PHP 8.5 Service (Custom Build)
+  php-apache:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        user: livro
+        uid: 1000
+    container_name: php85_app_livro
+    restart: unless-stopped
+    ports:
+      - 8090:80
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - mysql
+    networks:
+      - backend
+
+  # 2. MySQL 8.4 (LTS) Service
+  mysql:
+    image: mysql:8.4
+    container_name: mysql84_db_livro
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    env_file:
+      - ./.env
+    volumes:
+      - $PWD/mysql_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - backend
+
+  # 3. phpMyAdmin 5.2 Service
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.2
+    container_name: phpmyadmin52_livro
+    restart: always
+    ports:
+      - 8091:80
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    depends_on:
+      - mysql
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  mysql_data:

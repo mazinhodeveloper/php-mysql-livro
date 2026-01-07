@@ -3,7 +3,7 @@ Descrição do livro: A construção de sites e aplicações cresce de forma ace
 https://novatec.com.br/livros/aplicacoes-web-com-php-mysql-1ed   
 
 ## GitHub / Construindo Aplicações Web com PHP e MySQL - 1ª Edição    
-https://github.com/mazinhodeveloper/curso-logica-programacao-php   
+https://github.com/mazinhodeveloper/php-mysql-livro   
 
 ### Projeto   
 | Requisitos do Projeto      | URL                           |   
@@ -23,23 +23,26 @@ docker compose up -d --build
 | Banco de Dados        | http://localhost:8091 |   
 
 ### Parando todos os containers 
-docker stop $(docker ps -aq) 
+docker stop $(docker ps -aq)  
 
 ### Removendo todos os containers 
-docker rm $(docker ps -aq) 
+docker rm $(docker ps -aq)  
 
 ### Removendo todas as imagens 
-docker rmi $(docker images -aq) 
+docker rmi $(docker images -aq)  
 
 
 ### Todas as images 
-docker images 
+docker images  
 
 ### Listando as imagens que estão rodando 
-docker ps 
+docker ps   
 
 ### Listando todas as imagens 
-docker ps -a 
+docker ps -a   
+
+### Pausando todos os containers 
+docker compose pause   
 
 ### Parando os containers 
-docker compose stop 
+docker compose stop   
